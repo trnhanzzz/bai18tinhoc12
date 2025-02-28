@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLB Ngoại khóa Trường THPT Cái Bè</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> <!-- Thêm font Poppins hiện đại -->
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', Arial, sans-serif; /* Sử dụng font Poppins hiện đại, tối giản */
+        }
+
+        /* Hero Banner */
+        .hero {
+            position: relative;
+            min-height: 400px; /* Thay height: 600px; bằng min-height để linh hoạt hơn */
+            display: flex;
+            flex-direction: column; /* Sắp xếp theo cột */
+            align-items: center;
+            justify-content: center; /* Căn giữa theo chiều dọc */
+            text-align: center;
+            color: white;
+            background: none; /* Xóa background mặc định */
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Lớp phủ tối để chữ dễ đọc */
+            z-index: 0;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1; /* Đưa chữ lên trên lớp phủ */
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px; /* Khoảng cách giữa tiêu đề và ảnh */
+        }
+        .hero-img {
+            width: 80%; /* Kích thước ảnh lớn */
+            max-width: 800px; /* Giới hạn chiều rộng tối đa */
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1; /* Đưa ảnh lên trên lớp phủ */
+        }
+
+        /* Responsive cho hero-img */
+        @media (max-width: 768px) {
+            .hero-img {
+                width: 90%; /* Tăng chiều rộng trên mobile để lấp đầy hơn */
+                max-width: 500px; /* Giới hạn chiều rộng tối đa trên mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-img {
+                width: 100%; /* Chiếm toàn bộ chiều rộng trên màn hình rất nhỏ */
+                max-width: 300px; /* Giới hạn để không quá lớn trên mobile nhỏ */
+            }
+        }
+
+        /* Slogan Section */
+        .slogan {
+            padding: 40px 20px;
+            background: #f5f5f5;
+            text-align: center;
+        }
+        .row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .block_3 {
+            flex: 1;
+            min-width: 250px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .block_3:hover {
+            transform: translateY(-10px);
+        }
+        .block_3 h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        /* Main Content - Enhanced Image and Text Layout */
+        .content-table {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .content-row {
+            display: flex;
+            align-items: flex-start; /* Căn lề trên cùng để cân đối */
+            margin-bottom: 40px;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .cell_text,
+        .cell_img {
+            flex: 1;
+            min-width: 300px;
+            max-width: 50%; /* Giới hạn chiều rộng để cân đối với chữ */
+        }
+        .cell_text h3 {
+            color: #2980b9;
+            margin-bottom: 15px;
+            font-size: 1.5em; /* Kích thước tiêu đề lớn hơn, hiện đại */
+        }
+        .cell_text p, .cell_text ul {
+            color: #555; /* Màu chữ phụ, dễ đọc */
+            line-height: 1.6; /* Khoảng cách dòng đẹp hơn */
+        }
+        .cell_text ul {
+            list-style: none;
+            margin: 10px 0;
+        }
+        .cell_text ul li {
+            margin: 8px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+        .cell_text ul li:before {
+            content: "•";
+            color: #e74d4d;
+            position: absolute;
+            left: 0;
+        }
+        .cell_img img {
+            width: 100%;
+            height: 300px; /* Chiều cao cố định, vừa phải */
+            object-fit: cover; /* Giữ tỷ lệ, cắt bớt nếu cần */
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Bóng nhẹ, hiện đại */
+            transition: transform 0.3s, box-shadow 0.3s; /* Hiệu ứng hover */
+        }
+        .cell_img img:hover {
+            transform: scale(1.05); /* Phóng to nhẹ khi hover */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* Bóng lớn hơn khi hover */
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #e74d4d; /* Màu hover nổi bật hơn */
+        }
+
+        /* Responsive cho content-row */
+        @media (max-width: 768px) {
+            .cell_text, .cell_img {
+                max-width: 100%; /* Chiếm toàn bộ chiều rộng trên mobile */
+                min-width: 100%; /* Đảm bảo không bị thu nhỏ quá mức */
+            }
+            .cell_img img {
+                height: 200px; /* Giảm chiều cao trên mobile */
+            }
+            .content-row {
+                gap: 20px; /* Giảm khoảng cách trên mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cell_img img {
+                height: 150px; /* Giảm thêm chiều cao trên mobile nhỏ */
+            }
+            .cell_text h3 {
+                font-size: 1.2em; /* Giảm kích thước tiêu đề trên mobile nhỏ */
+            }
+            .content-row {
+                gap: 10px; /* Giảm thêm khoảng cách trên mobile nhỏ */
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 20px;
+        }
+        footer .row {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        footer a {
+            color: #ecf0f1;
+        }
+        footer a:hover {
+            color: #3498db; /* Màu hover hiện đại */
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Câu lạc bộ ngoại khóa Trường THPT Cái Bè</h1>
+            <img src="anh/thptcaibe.jpg" alt="Trường THPT Cái Bè" class="hero-img">
+        </div>
+    </section>
+
+    <!-- Slogan Section -->
+    <section class="slogan">
+        <div class="row">
+            <div class="block_3">
+                <h2>Sáng tạo</h2>
+                <p>Khơi nguồn ý tưởng mới</p>
+            </div>
+            <div class="block_3">
+                <h2>Đoàn kết</h2>
+                <p>Xây dựng tinh thần tập thể</p>
+            </div>
+            <div class="block_3">
+                <h2>Phát triển</h2>
+                <p>Nâng cao kỹ năng toàn diện</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="content-table">
+        <div class="content-row">
+            <div class="cell_text">
+                <h3>Học tốt - Rèn luyện giỏi</h3>
+                <p>Hãy tham gia cùng chúng tôi để khám phá đam mê, vượt qua giới hạn và viết nên câu chuyện thanh xuân của chính bạn!</p>
+            </div>
+            <div class="cell_img">
+                <img src="anh/hoc tot.webp" alt="Hoạt động ngoại khóa">
+            </div>
+        </div>
+        <div class="content-row">
+            <div class="cell_img">
+                <img src="icon/tthao.jpg" alt="CLB Thể thao">
+            </div>
+            <div class="cell_text">
+                <h3>CLB Thể thao</h3>
+                <ul>
+                    <li>Bóng chuyền</li>
+                    <li>Cầu lông</li>
+                    <li>Điền kinh</li>
+                    <li>Võ thuật</li>
+                </ul>
+                <a href="thethao.html">Chi tiết</a>
+            </div>
+        </div>
+        <div class="content-row">
+            <div class="cell_text">
+                <h3>CLB Văn hóa - Nghệ thuật</h3>
+                <ul>
+                    <li>Hội họa</li>
+                    <li>Âm nhạc</li>
+                    <li>Văn học</li>
+                    <li>Nhảy hiện đại</li>
+                </ul>
+                <a href="vanhoa-nghethuat.html">Chi tiết</a>
+            </div>
+            <div class="cell_img">
+                <img src="icon/vhnt.jpg" alt="CLB Văn hóa - Nghệ thuật">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div style="flex: 6;">
+                <p>Liên hệ:</p>
+                <ul>
+                    <li>Điện thoại: 02733824355</li>
+                    <li>Website: <a href="index.html" class="link">CLB Ngoại khóa Trường THPT Cái Bè</a></li>
+                    <li>Tham gia CLB: <a href="dangki.html" class="link">Mẫu đăng kí</a></li>
+                </ul>
+            </div>
+            <div style="flex: 1;"></div>
+            <div style="flex: 3;">
+                <p>Xem chi tiết:</p>
+                <ul>
+                    <li><a href="thethao.html" class="link">Trang web CLB Thể thao</a></li>
+                    <li><a href="vanhoa-nghethuat.html" class="link">Trang web CLB Văn hóa - Nghệ thuật</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLB Văn hóa - Nghệ thuật Trường THPT Cái Bè</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+
+        /* Hero Banner */
+        .hero {
+            position: relative;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 0;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .hero-img {
+            width: 80%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Responsive cho hero-img */
+        @media (max-width: 768px) {
+            .hero-img {
+                width: 90%;
+                max-width: 500px;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-img {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Slogan Section */
+        .slogan {
+            padding: 40px 20px;
+            background: #f5f5f5;
+            text-align: center;
+        }
+        .row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .block_3 {
+            flex: 1;
+            min-width: 250px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .block_3:hover {
+            transform: translateY(-10px);
+        }
+        .block_3 h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        /* Main Content */
+        .content-table {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .content-row {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .cell_text,
+        .cell_img {
+            flex: 1;
+            min-width: 300px;
+            max-width: 50%;
+        }
+        .cell_text h3 {
+            color: #2980b9;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .cell_text p, .cell_text ul {
+            color: #555;
+            line-height: 1.6;
+        }
+        .cell_text ul {
+            list-style: none;
+            margin: 10px 0;
+        }
+        .cell_text ul li {
+            margin: 8px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+        .cell_text ul li:before {
+            content: "•";
+            color: #e74d4d;
+            position: absolute;
+            left: 0;
+        }
+        .cell_img img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .cell_img img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #e74d4d;
+        }
+
+        /* Responsive cho content-row */
+        @media (max-width: 768px) {
+            .cell_text, .cell_img {
+                max-width: 100%;
+                min-width: 100%;
+            }
+            .cell_img img {
+                height: 200px;
+            }
+            .content-row {
+                gap: 20px;
+            }
+        }
+        @media (max-width: 480px) {
+            .cell_img img {
+                height: 150px;
+            }
+            .cell_text h3 {
+                font-size: 1.2em;
+            }
+            .content-row {
+                gap: 10px;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 20px;
+        }
+        footer .row {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        footer a {
+            color: #ecf0f1;
+        }
+        footer a:hover {
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>CLB Văn hóa - Nghệ thuật Trường THPT Cái Bè</h1>
+            <img src="icon/vhnt.jpg" alt="CLB Văn hóa - Nghệ thuật" class="hero-img">
+        </div>
+    </section>
+
+    <!-- Slogan Section -->
+    <section class="slogan">
+        <div class="row">
+            <div class="block_3">
+                <h2>Sáng tạo</h2>
+                <p>Khơi nguồn cảm hứng nghệ thuật</p>
+            </div>
+            <div class="block_3">
+                <h2>Đam mê</h2>
+                <p>Cháy hết mình trong từng tác phẩm</p>
+            </div>
+            <div class="block_3">
+                <h2>Tỏa sáng</h2>
+                <p>Thể hiện tài năng độc đáo</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="content-table">
+        <div class="content-row">
+            <div class="cell_text">
+                <h3>Giới thiệu CLB Văn hóa - Nghệ thuật</h3>
+                <p>CLB Văn hóa - Nghệ thuật Trường THPT Cái Bè là nơi hội tụ những tâm hồn yêu nghệ thuật, mong muốn khám phá và phát triển tài năng sáng tạo. Chúng tôi mang đến sân chơi bổ ích để các bạn trẻ thể hiện bản thân qua các hoạt động văn hóa và nghệ thuật đầy ý nghĩa.</p>
+            </div>
+            <div class="cell_img">
+                <img src="anh/digital-artist-1.jpg" alt="Hội họa">
+            </div>
+        </div>
+        <div class="content-row">
+            <div class="cell_img">
+                <img src="anh/nart2.jpg" alt="Âm nhạc">
+            </div>
+            <div class="cell_text">
+                <h3>Các lĩnh vực nghệ thuật</h3>
+                <ul>
+                    <li><strong>Hội họa:</strong> Tự do sáng tạo qua nét cọ và màu sắc.</li>
+                    <li><strong>Âm nhạc:</strong> Gửi gắm cảm xúc qua âm thanh và giai điệu.</li>
+                    <li><strong>Văn học:</strong> Viết nên những câu chuyện đầy cảm hứng.</li>
+                    <li><strong>Nhảy hiện đại:</strong> Thể hiện cá tính qua từng chuyển động.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-row">
+            <div class="cell_text">
+                <h3>Tham gia ngay</h3>
+                <p>Bạn yêu thích nghệ thuật? Hãy gia nhập CLB để cùng chúng tôi tạo nên những tác phẩm độc đáo và lưu giữ những khoảnh khắc thanh xuân rực rỡ!</p>
+                <a href="dangki.html">Đăng ký tại đây</a>
+            </div>
+            <div class="cell_img">
+                <img src="anh/Button-03 (1).jpg" alt="Nhảy hiện đại">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div style="flex: 6;">
+                <p>Liên hệ:</p>
+                <ul>
+                    <li>Điện thoại: 02733824355</li>
+                    <li>Website: <a href="index.html" class="link">Quay lại CLB Ngoại khóa Trường THPT Cái Bè</a></li>
+                    <li>Tham gia CLB: <a href="dangki.html" class="link">Mẫu đăng ký</a></li>
+                </ul>
+            </div>
+            <div style="flex: 1;"></div>
+            <div style="flex: 3;">
+                <p>Xem chi tiết:</p>
+                <ul>
+                    <li><a href="thethao.html" class="link">Trang web CLB Thể thao</a></li>
+                    <li><a href="nghethuat.html" class="link">Trang web CLB Văn hóa - Nghệ thuật</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
